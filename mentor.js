@@ -126,13 +126,21 @@ var tweeter = new twitter({
 
 var tweet = function() {
 	tweeter
-	.verifyCredentials(function(err, data){ /* NOP */ })
+	.verifyCredentials(function(err, data) { /* NOP */ })
 	.updateStatus(
 		getMentorism(),
 		function(err, data) { /*NOP*/ }
 	);
 }
 
+var keepAlive = function() {
+	http.get("http://punyonhorror.com", function(res){
+		console.log("Kept alive.")
+	})
+}
+
+tweet();
 setInterval(tweet, process.env.TWEET_INTERVAL);
+setInterval(keepAlive, 300000);
 
 console.log('Get your mentor on at http://localhost:' + port);
