@@ -98,6 +98,7 @@ var mentorisms = [
 	"And, if they misbehave we'll send them email photos of Punyon. \"MY EYES! IT BURNS!! AAHHHHHH!\""
 ];
 
+//http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
 var getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
