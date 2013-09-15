@@ -39,10 +39,11 @@ var getMentorism = function() {
 	return sampleFromArray(mentorisms);
 };
 
+var port = process.env.PORT || 1337;
 
 http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
 	res.end(getMentorism());
-}).listen(1337, '127.0.0.1');
+}).listen(port, '127.0.0.1');
 
-console.log('Get your mentor on at http://localhost:1337');
+console.log('Get your mentor on at http://localhost:' + port);
