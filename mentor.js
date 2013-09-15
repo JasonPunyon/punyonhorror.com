@@ -1,4 +1,5 @@
 var http = require('http');
+var twitter = require('ntwitter');
 
 var mentorisms = [
 	"I'm not naming any names but it was JASON PUNYON",
@@ -115,5 +116,23 @@ http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
 	res.end(getMentorism());
 }).listen(port);
+
+var tweeter = new twitter({
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
+
+var tweet = function() {
+	tweeter
+	.verifyCredentials(function(err, data){ /* NOP */ })
+	.updateStatus(
+		getMentorism(),
+		function(err, data) { /*NOP*/ }
+	);
+}
+
+setInterval(tweet, 30000);
 
 console.log('Get your mentor on at http://localhost:' + port);
