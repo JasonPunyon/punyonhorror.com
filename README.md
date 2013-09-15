@@ -1,4 +1,4 @@
-mentor
+punyonhorror.com
 ======
 
-Sometimes I need a pick me up from my favorite mentor...
+What it's like to work for the web's greatest mentor
