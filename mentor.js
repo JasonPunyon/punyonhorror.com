@@ -133,6 +133,6 @@ var tweet = function() {
 	);
 }
 
-setInterval(tweet, 30000);
+setInterval(tweet, process.env.TWEET_INTERVAL);
 
 console.log('Get your mentor on at http://localhost:' + port);
